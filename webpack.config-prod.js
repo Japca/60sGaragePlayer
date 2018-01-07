@@ -1,13 +1,15 @@
-const debug = process.env.NODE_ENV !== 'production';
-const webpack = require('webpack');
-const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const debug = process.env.NODE_ENV !== 'production'
+const webpack = require('webpack')
+const path = require('path')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const VENDOR_LIBS = [
     'react', 'react-dom'
-];
+]
 
-const resources = 'src/main/resources/';
+const resources = 'src/main/resources/'
+
 
 module.exports = {
     entry: {
@@ -41,6 +43,7 @@ module.exports = {
     devtool: '#eval-source-map',
 
     plugins: [
+        new CleanWebpackPlugin('src/main/resources/public'),
         new ExtractTextPlugin('style.css'),
         new webpack.optimize.CommonsChunkPlugin({
             names: ['vendor', 'manifest']

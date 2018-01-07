@@ -4,6 +4,7 @@
   "description": "xties-garage-player",
   "main": "webpack.config.js",
   "dependencies": {
+
     "axios": "^0.16.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
@@ -18,18 +19,20 @@
     "css-loader": "^0.28.4",
     "eslint": "^4.2.0",
     "extract-text-webpack-plugin": "^2.1.2",
+    "clean-webpack-plugin": "^0.1.17",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.29.0",
     "install": "^0.10.1",
     "npm": "^5.1.0",
     "rimraf": "^2.6.1",
     "webpack": "^2.7.0",
-    "webpack-dev-server": "^2.5.1"
+    "webpack-dev-server": "^2.5.1",
+    "eslint-plugin-react": "^7.5.1"
   },
   "scripts": {
-    "dev": "webpack-dev-server --content-base src/main/resources/public --inline --hot",
+    "dev": "webpack-dev-server --content-base src/main/resources/public --inline --hot --config webpack.config-prod.js",
     "clean": "rimraf src/main/resources/public",
-    "build": "npm run clean && webpack -p --progress --display-modules",
+    "build": "webpack -p --progress --display-modules",
     "mavenBuild": "webpack -p --progress --display-modules",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
