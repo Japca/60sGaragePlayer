@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Japca/60sGaragePlayer#readme",
   "dependencies": {
     "node-id3": "^0.1.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.17.0"
   }
 }
