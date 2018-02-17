@@ -15,8 +15,7 @@ const path = require('path')
 
 module.exports = {
     entry: {
-        // main: './src/main/resources/js/index.js',
-        main: './client/app.js'
+        main: './src/client/app.js'
     },
     output: {
         path: path.resolve(__dirname, './public'),
@@ -49,7 +48,7 @@ module.exports = {
         host: 'localhost',
         // proxy: {
         //     '/': {
-        //         target: 'http://localhost:8080/',
+        //         target: 'http://localhost:3000/',
         //         secure: false
         //     }
         // }
