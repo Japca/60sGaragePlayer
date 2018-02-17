@@ -1,6 +1,7 @@
 const tracks = require('./tracks.js')
 debugger;
-//  let trackMetaData = tracks.load('../tracks')
-// console.log(trackMetaData.then(data => {
-//     console.log(data)
-// }))
+
+let trackMetaData = tracks.load('tracks')
+trackMetaData.then(data => {
+    console.log(data)
+})
