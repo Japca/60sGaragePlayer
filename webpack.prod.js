@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const VENDOR_LIBS = [
-    'react', 'react-dom', 'axios',
+    'react', 'react-dom', 'axios', 'express', 'node-id3',
 ]
 
 const bundleDir = './public'
@@ -17,7 +17,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './public'),
-        filename: '[name].[hash].js'
+        filename: '[name].[chunkhash].js'
     },
     module: {
         rules: [
@@ -26,26 +26,17 @@ module.exports = {
                 exclude: /(node_modules)/,
                 use: 'babel-loader'
             },
-            // {
-            //     test: /\.css$/,
-            //     use: ExtractTextPlugin.extract({
-            //         fallback: 'style-loader',
-            //         use: 'css-loader?modules,localIdentName="[name]-[local]-[hash:base64:6]"'
-            //     }),
-            // },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader?modules,localIdentName="[name]-[local]-[hash:base64:6]"'
+                }),
+            },
         ],
     },
 
-     devtool: 'cheap-module-eval-source-map',
-
-     //devtool:'source-map',
-    // devtool: 'inline-source-map',
-    devServer: {
-        historyApiFallback: true,
-        inline: true,
-        hot: true,
-        contentBase: path.join(__dirname, './public'),
-    },
+    devtool: 'source-map',
     plugins: [
         new CleanWebpackPlugin([bundleDir]),
         new ExtractTextPlugin({filename: 'style.css', allChunks: true}),
@@ -69,7 +60,6 @@ module.exports = {
         }),
         new webpack.LoaderOptionsPlugin({minimize: true}),
         new webpack.optimize.ModuleConcatenationPlugin(),
-        new webpack.HotModuleReplacementPlugin()
     ]
 }
 

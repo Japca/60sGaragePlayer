@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { debug } from 'util';
+
+import CSSModules from 'react-css-modules'
+import styles from './layout.css'
 
 
-export default class Layout extends Component {
+class Layout extends Component {
 
     constructor(props) {
         super(props)
@@ -13,6 +17,7 @@ export default class Layout extends Component {
 
     componentDidMount() {
         axios.get('/metaData').then(response => {
+        
             this.setState( { data: response.data} )
         }) 
     }
@@ -23,8 +28,10 @@ export default class Layout extends Component {
         let data = this.state.data
         return (
             <div>
-              <h1>Log compnentaaa</h1>
+              <h1 styleName="coll">Log compnentaaa</h1>
             </div>
         )
     }
 }
+
+export default CSSModules(Layout, styles)

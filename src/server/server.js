@@ -21,11 +21,11 @@ server.get('/metaData', function (req, res) {
 if(process.env.NODE_ENV !== 'procuction') {
   const webpackMiddleware = require('webpack-dev-middleware')
   const webpack = require('webpack')
-  const webpackConfig = require('../../webpack.config')
+  const webpackConfig = require('../../webpack.dev')
   server.use(webpackMiddleware(webpack(webpackConfig)))
 } else {
+  server.use(express.static('public'))
   server.get('*', (req, res) => {
-    server.use(express.static('public'))
     res.sendFile(path.join(__dirname, 'public/index.html'))
   })
  }

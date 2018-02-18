@@ -7,9 +7,7 @@
     "node": "node src/server/server.js",
     "dev": "webpack-dev-server",
     "start": "node src/server/server.js",
-    "build": "webpack -p --progress --display-modules",
-    "buildDev": "webpack --progress --display-modules",
-    "watch": "webpack --watch",
+    "build": "webpack -p --progress --display-modules --config webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
