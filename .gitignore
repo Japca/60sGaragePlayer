@@ -1,6 +1,7 @@
 node_modules
 tracks
 package-lock.json
-
+public
+.idea
 
 
