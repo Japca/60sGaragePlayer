@@ -11,7 +11,7 @@ server.get('/metaData', function (req, res) {
     res.send(trackMetaData)
     return
   } 
-  
+
   tracks.load('tracks').then(data => {
     trackMetaData = data
     res.send(trackMetaData)

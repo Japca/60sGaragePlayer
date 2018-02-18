@@ -17,18 +17,24 @@ class Layout extends Component {
 
     componentDidMount() {
         axios.get('/metaData').then(response => {
-        
-            this.setState( { data: response.data} )
-        }) 
+            debugger
+            this.setState({ data: response.data })
+        })
     }
 
     render() {
-        debugger;
-        console.info('Log component')
+        debugger
         let data = this.state.data
         return (
             <div>
-              <h1 styleName="coll">Log compnentaaa</h1>
+                <h1 styleName="coll">Log compnent</h1>
+                {data.map(track => {
+                    return <div styleName="track">
+                        <p>{track.title}</p>
+                        <p>{track.artist}</p>
+                        <p>{track.year}</p>
+                    </div>
+                })}
             </div>
         )
     }
