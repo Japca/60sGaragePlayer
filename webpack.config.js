@@ -1,16 +1,14 @@
 const webpack = require('webpack')
 const path = require('path')
-// const ExtractTextPlugin = require('extract-text-webpack-plugin')
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const CleanWebpackPlugin = require('clean-webpack-plugin')
-//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-// const VENDOR_LIBS = [
-//     'react', 'react-dom', 'react-redux', 'react-bootstrap', 'react-router-dom',
-//     'redux', 'redux-promise', 'redux-form',
-//     'lodash', 'axios',
-// ]
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const VENDOR_LIBS = [
+    'react', 'react-dom', 'axios',
+]
 
-// const bundleDir = './src/main/resources/public'
+const bundleDir = './public'
 
 
 module.exports = {
@@ -19,7 +17,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './public'),
-        filename: 'bundle.js'
+        filename: '[name].[hash].js'
     },
     module: {
         rules: [
@@ -38,33 +36,26 @@ module.exports = {
         ],
     },
 
-    // devtool:'source-map',
-    devtool: 'inline-source-map',
+     devtool: 'cheap-module-eval-source-map',
+
+     //devtool:'source-map',
+    // devtool: 'inline-source-map',
     devServer: {
         historyApiFallback: true,
         inline: true,
         hot: true,
         contentBase: path.join(__dirname, './public'),
-        host: 'localhost',
-        // proxy: {
-        //     '/': {
-        //         target: 'http://localhost:3000/',
-        //         secure: false
-        //     }
-        // }
-
-        
     },
     plugins: [
-        // new CleanWebpackPlugin([bundleDir]),
-        // new ExtractTextPlugin({filename: 'style.css', allChunks: true}),
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     names: ['vendor', 'manifest']
-        // }),
+        new CleanWebpackPlugin([bundleDir]),
+        new ExtractTextPlugin({filename: 'style.css', allChunks: true}),
+        new webpack.optimize.CommonsChunkPlugin({
+            names: ['vendor', 'manifest']
+        }),
 
-        // new HtmlWebpackPlugin({
-        //     template: 'src/main/resources/templates/index.html'
-        // }),
+        new HtmlWebpackPlugin({
+            template: 'src/template/index.html'
+        }),
 
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
