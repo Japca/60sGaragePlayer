@@ -1,13 +1,10 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import { debug } from 'util';
-
+import React, { Component } from 'react';
+import axios from 'axios';
 import CSSModules from 'react-css-modules'
-import styles from './layout.css'
+import styles from './trackList.css'
 
-
-class Layout extends Component {
-
+class TrackList extends Component {
+  
     constructor(props) {
         super(props)
         this.state = {
@@ -17,27 +14,28 @@ class Layout extends Component {
 
     componentDidMount() {
         axios.get('/metaData').then(response => {
-            debugger
             this.setState({ data: response.data })
         })
     }
 
     render() {
-        debugger
         let data = this.state.data
+        let id= 0;
         return (
-            <div>
-                <h1 styleName="coll">Log compnent</h1>
+            <div styleName="container">
+                   <i className="fa fa-spinner"></i>
                 {data.map(track => {
-                    return <div styleName="track">
-                        <p>{track.title}</p>
+                    return <div styleName="track" key={++id}>
+                        <i className="fa fa-spinner fa-spin"></i>
+                        <p>{track.title} ({track.year})</p>
                         <p>{track.artist}</p>
-                        <p>{track.year}</p>
                     </div>
                 })}
             </div>
         )
     }
 }
+ 
 
-export default CSSModules(Layout, styles)
+export default CSSModules(TrackList, styles)
+

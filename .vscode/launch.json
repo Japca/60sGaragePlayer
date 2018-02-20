@@ -11,8 +11,19 @@
             "program": "${workspaceFolder}/src/server/server.js",
             "localRoot": "${workspaceFolder}",
             "sourceMaps": true,
+<<<<<<< HEAD
             "trace": true
         }
+=======
+            "url": "http://localhost:3000",
+            "trace": true,
+            "webRoot": "${workspaceRoot}/src",
+                // "webpack:///./~/*": "${workspaceRoot}/node_modules/*", // Example: "webpack:///./~/querystring/index.js" -> "/Users/me/project/node_modules/querystring/index.js"
+                // "webpack:///*":     "*",                               // Example: "webpack:///C:/project/app.ts" -> "C:/project/app.ts"
+                //"meteor://💻app/*": "${webRoot}/*"                    // Example: "meteor://💻app/main.ts" -> "c:/code/main.ts"
+            },
+        //}
+>>>>>>> 1f2c484a483c5712ddb7de31a782af032036079f
         // {
         //     "type": "chrome",
         //     "request": "launch",

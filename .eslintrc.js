@@ -25,9 +25,9 @@ module.exports = {
             "warn",
             "single"
         ],
-        "semi": [
-            "warn",
-            "never"
-        ],
+        // "semi": [
+        //     "warn",
+        //     ""
+        // ],
     }
 };
