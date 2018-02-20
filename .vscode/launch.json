@@ -11,15 +11,13 @@
             "name": "Launch Program",
             "sourceMaps": true,
             "url": "http://localhost:3000",
+            "trace": true,
             "webRoot": "${workspaceRoot}/src",
-            "sourceMapPathOverrides": {
-                "webpack:///*": "${workspaceRoot}/*",
                 // "webpack:///./~/*": "${workspaceRoot}/node_modules/*", // Example: "webpack:///./~/querystring/index.js" -> "/Users/me/project/node_modules/querystring/index.js"
                 // "webpack:///*":     "*",                               // Example: "webpack:///C:/project/app.ts" -> "C:/project/app.ts"
                 //"meteor://💻app/*": "${webRoot}/*"                    // Example: "meteor://💻app/main.ts" -> "c:/code/main.ts"
             },
-            "trace": true
-        }
+        //}
         // {
         //     "type": "node",
         //     "request": "launch",
