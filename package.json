@@ -5,21 +5,24 @@
   "main": "app.js",
   "scripts": {
     "start": "node src/server/server.js",
-    "build": "webpack -p --progress --display-modules --config webpack.prod.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src/ -d lib/ webpack -p --progress --display-modules --config webpack.prod.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "flow": "flow"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Japca/60sGaragePlayer.git"
   },
+  "homepage": "https://github.com/Japca/60sGaragePlayer#readme",
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Japca/60sGaragePlayer/issues"
   },
-  "homepage": "https://github.com/Japca/60sGaragePlayer#readme",
+
   "dependencies": {
     "axios": "^0.17.1",
+    "classnames": "^2.2.5",
     "express": "^4.16.2",
     "font-awesome": "^4.7.0",
     "node-id3": "^0.1.3",

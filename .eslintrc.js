@@ -9,10 +9,12 @@ module.exports = {
         "ecmaVersion": 6,
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
-            "jsx": true
+            "jsx": true,
+            
         },
         "sourceType": "module"
     },
+    jsx-quotes: [ "classnames"],
      "plugins": [
         "react",
     ],
@@ -25,9 +27,9 @@ module.exports = {
             "warn",
             "single"
         ],
-        // "semi": [
-        //     "warn",
-        //     ""
-        // ],
+         "semi": [
+             "warn",
+             "always"
+         ],
     }
 };
