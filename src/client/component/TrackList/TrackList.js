@@ -1,15 +1,17 @@
+// @flow
 import React, { Component } from 'react';
 import axios from 'axios';
 import CSSModules from 'react-css-modules';
 import styles from './trackList.css';
 import classnames from 'classnames';
+import type { Track } from '../../../types/Track';
 
 class TrackList extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            data:  []
         }
     }
 
@@ -20,7 +22,7 @@ class TrackList extends Component {
     }
 
     render() {
-        let data = this.state.data;
+        let data: Array<Track>  = this.state.data;
         let id = 0;
         return (
             <div styleName="container">
@@ -38,6 +40,8 @@ class TrackList extends Component {
             </div>
         );
     }
+
+
 }
 
 

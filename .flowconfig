@@ -1,11 +1,16 @@
 [ignore]
+.*/node_modules/.*
 
 [include]
+/src/server/tracks.js
 
 [libs]
+flow-typed/
+
 
 [lints]
 
 [options]
+
 
 [strict]

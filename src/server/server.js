@@ -1,5 +1,9 @@
+import { ENOSYS } from 'constants';
+
+// @flow
 const express = require('express');
 const tracks = require('./tracks.js');
+
 
 const server = express();
 
@@ -27,7 +31,7 @@ if(process.env.NODE_ENV !== 'procuction') {
   server.use(express.static('public'));
   server.use(express.static('public/fonts'));
   server.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'));
+    res.sendFile(path.join(__dirname, 'public/index.html'): any);
   });
  }
 
