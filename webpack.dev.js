@@ -1,40 +1,12 @@
-const path = require('path')
+const merge = require('webpack-merge');
+const common = require('./webpack.common.js');
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const bundleDir = './public'
+const path = require('path')
 
-module.exports = {
+const bundleDir = './dist'
+module.exports = merge(common, {
+    mode: 'development',
 
-    entry: {
-        app: './src/client/app.js'
-    },
-    output: {
-        path: path.resolve(__dirname, bundleDir),
-        filename: 'bundle.js'
-
-    },
-
-    module: {
-        rules: [
-            {
-                test: /\.jsx?$/,
-                exclude: /(node_modules|node)/,
-                use: 'babel-loader'
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    'style-loader?sourceMap',
-                    'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
-                ]
-            },
-            {
-				test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-				loader: 'file-loader?name=fonts/[name].[ext]'
-            },
-            
-        ],
-    },
     devtool: 'inline-source-map',
     devServer: {
         historyApiFallback: true,
@@ -42,12 +14,12 @@ module.exports = {
         hot: true,
         contentBase: path.join(__dirname, bundleDir),
         host: 'localhost',
+        // port: 3000,
+        publicPath: '/'
     },
 
     plugins: [
-        new HtmlWebpackPlugin({
-            template: 'src/template/index-dev.html'
-        }),
+        new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ]
-}
+})

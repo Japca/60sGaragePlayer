@@ -1,8 +1,7 @@
-// @flow
 const fs = require('fs');
 const nodeId = require('node-id3');
  
-var load = function(folder: string): Promise<any> {
+var load = function(folder) {
     let tracksMetadata= []
     return new Promise((resolve, reject) => {
         try {

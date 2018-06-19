@@ -14,8 +14,7 @@ module.exports = {
         },
         "sourceType": "module"
     },
-    jsx-quotes: [ "classnames"],
-     "plugins": [
+    "plugins": [
         "react",
     ],
     "rules": {

@@ -1,10 +1,5 @@
-// @flow
 import React, { Component } from 'react'
 import axios from 'axios'
-import moduleName from '../TrackList/TrackList'
-
-import CSSModules from 'react-css-modules'
-import styles from './layout.css'
 import TrackList from '../TrackList/TrackList';
 
 class Layout extends Component {
@@ -15,7 +10,6 @@ class Layout extends Component {
     }
 
     render() {
-         
         return (
             <div>
               <TrackList />
@@ -27,4 +21,4 @@ class Layout extends Component {
 }
 
 
-export default CSSModules(Layout, styles)
+export default Layout

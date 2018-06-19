@@ -1,10 +1,6 @@
-// @flow
 import React, { Component } from 'react';
 import axios from 'axios';
-import CSSModules from 'react-css-modules';
-import styles from './trackList.css';
-import classnames from 'classnames';
-import type { Track } from '../../../types/Track';
+
 
 class TrackList extends Component {
 
@@ -22,15 +18,12 @@ class TrackList extends Component {
     }
 
     render() {
-        let data: Array<Track>  = this.state.data;
+        let data = this.state.data;
         let id = 0;
         return (
-            <div styleName="container">
+            <div>
                 {data.map(track => {
-                    return <div styleName="track" key={++id}>
-                        <span className="play">
-                            <i className="fa fa-caret-square-o-right fa-3x" aria-hidden="true"></i>
-                        </span>
+                    return <div key={++id}>
                         <div className="text">
                             <p>{track.title} ({track.year})</p>
                             <p>{track.artist}</p>
@@ -45,5 +38,5 @@ class TrackList extends Component {
 }
 
 
-export default CSSModules(TrackList, styles);
+export default TrackList;
 
