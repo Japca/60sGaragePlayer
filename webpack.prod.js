@@ -1,9 +1,9 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
-const webpack = require('webpack')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const bundleDir = './dist'
+const bundleDir = './dist';
 const PRODUCTION = 'production';
 
 module.exports = merge(common, {
@@ -27,6 +27,6 @@ module.exports = merge(common, {
             'process.env.NODE_ENV': JSON.stringify(PRODUCTION)
         }),
     ]
-})
+});
 
 

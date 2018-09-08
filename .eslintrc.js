@@ -40,7 +40,11 @@ module.exports = {
             'error',
         ],
         'node/no-unpublished-require': ['error', {
-            "allowModules": ['webpack', 'webpack-dev-middleware'],
+            'allowModules': ['webpack', 'webpack-dev-middleware', 'webpack-merge', 'clean-webpack-plugin'],
+        }],
+        'node/no-unsupported-features/es-syntax': ['error', {
+            "ignores": ["modules"]
+
         }],
         'no-console': 'off',
     }

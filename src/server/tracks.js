@@ -1,8 +1,8 @@
 const fs = require('fs');
 const nodeId = require('node-id3');
  
-var load = function(folder) {
-    let tracksMetadata= []
+const load = function(folder) {
+    let tracksMetadata= [];
     return new Promise((resolve, reject) => {
         try {
             fs.readdir(folder, (err, tracks) => {
