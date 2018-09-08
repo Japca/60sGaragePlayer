@@ -1,34 +1,47 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es6": true
+    'env': {
+        'browser': true,
+        'commonjs': true,
+        'es6': true
     },
-     "extends": ["eslint:recommended"],
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true,
-            
+    'extends': ['eslint:recommended', "plugin:node/recommended"],
+    'parserOptions': {
+        'ecmaVersion': 6,
+        'ecmaFeatures': {
+            'experimentalObjectRestSpread': true,
+            'jsx': true,
+
         },
-        "sourceType": "module"
+        'sourceType': 'module'
     },
-    "plugins": [
-        "react",
+    'plugins': [
+        'react',
     ],
-    "rules": {
-       "linebreak-style": [
-            "error",
-            "unix"
+    'rules': {
+        'linebreak-style': [
+            'error',
+            'unix'
         ],
-        "quotes": [
-            "warn",
-            "single"
+        'indent': [
+            'error', 4
         ],
-         "semi": [
-             "warn",
-             "always"
-         ],
+        'quotes': [
+            'error',
+            'single'
+        ],
+        'semi': [
+            'error',
+            'always'
+        ],
+        'no-debugger': [
+            'warn'
+        ],
+        'no-mixed-spaces-and-tabs': [
+            'error',
+        ],
+        'node/no-unpublished-require': ['error', {
+            "allowModules": ['webpack', 'webpack-dev-middleware'],
+        }],
+        'no-console': 'off',
     }
 };
