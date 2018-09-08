@@ -11,16 +11,18 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-let trackMetaData;
+let mp3Tags;
+
 app.get('/metaData', function (req, res) {
-    if (trackMetaData) {
-        res.send(trackMetaData);
-        return;
+    if (mp3Tags) {
+        console.info('Loading mp3 tags from cache.');
+        return res.send(mp3Tags);
     }
 
-    tracks.load('tracks').then(data => {
-        trackMetaData = data;
-        res.send(trackMetaData);
+    console.info('Loading mp3 tags from file system.');
+    tracks.getTags('tracks').then(data => {
+        mp3Tags = data;
+        res.send(mp3Tags);
     });
 });
 

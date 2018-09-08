@@ -12,6 +12,7 @@ class TrackList extends Component {
     }
 
     componentDidMount() {
+        debugger;
         axios.get('/metaData').then(response => {
             this.setState({ data: response.data });
         });
