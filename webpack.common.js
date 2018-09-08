@@ -1,9 +1,7 @@
 const path = require('path');
-const webpack = require('webpack')
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const bundleDir = './dist'
+const bundleDir = './dist';
 
 
 module.exports = {
@@ -19,9 +17,17 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.js?$/,
                 exclude: /(node_modules)/,
-                use: 'babel-loader'
+                use: ['babel-loader',
+                    {
+                        loader: 'eslint-loader',
+                        options: {
+                            failOnError: true,
+                        }
+                    }
+                ],
+
             },
             {
                 test: /\.css$/,
@@ -52,4 +58,4 @@ module.exports = {
         }),
     ]
 
-}
+};

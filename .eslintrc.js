@@ -4,7 +4,7 @@ module.exports = {
         'commonjs': true,
         'es6': true
     },
-    'extends': ['eslint:recommended', "plugin:node/recommended"],
+    'extends': ['eslint:recommended', 'plugin:node/recommended','plugin:react/recommended'],
     'parserOptions': {
         'ecmaVersion': 6,
         'ecmaFeatures': {
@@ -40,11 +40,16 @@ module.exports = {
             'error',
         ],
         'node/no-unpublished-require': ['error', {
-            'allowModules': ['webpack', 'webpack-dev-middleware', 'webpack-merge', 'clean-webpack-plugin'],
+            'allowModules': [
+                'webpack',
+                'webpack-dev-middleware',
+                'webpack-merge',
+                'clean-webpack-plugin',
+                'html-webpack-plugin'
+            ],
         }],
         'node/no-unsupported-features/es-syntax': ['error', {
-            "ignores": ["modules"]
-
+            'ignores': ['modules']
         }],
         'no-console': 'off',
     }

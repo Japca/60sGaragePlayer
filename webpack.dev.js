@@ -1,9 +1,9 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
-const webpack = require('webpack')
-const path = require('path')
+const webpack = require('webpack');
+const path = require('path');
 
-const bundleDir = './dist'
+const bundleDir = './dist';
 module.exports = merge(common, {
     mode: 'development',
 
@@ -14,7 +14,7 @@ module.exports = merge(common, {
         hot: true,
         contentBase: path.join(__dirname, bundleDir),
         host: 'localhost',
-        // port: 3000,
+        port: 3000,
         publicPath: '/'
     },
 
@@ -22,4 +22,4 @@ module.exports = merge(common, {
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ]
-})
+});

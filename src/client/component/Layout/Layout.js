@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import TrackList from '../TrackList/TrackList';
 
 class Layout extends Component {
@@ -12,7 +11,7 @@ class Layout extends Component {
     render() {
         return (
             <div>
-                <TrackList/>
+                <TrackList />
             </div>
         );
     }

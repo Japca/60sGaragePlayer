@@ -8,7 +8,7 @@ class TrackList extends Component {
         super(props);
         this.state = {
             data:  []
-        }
+        };
     }
 
     componentDidMount() {
