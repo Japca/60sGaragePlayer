@@ -9,10 +9,9 @@ router.get('/tags', function (req, res) {
         console.info('Loading mp3 tags from cache.');
         return res.send(mp3Tags);
     }
-    // let params = req.params();
 
     console.info('Loading mp3 tags from file system.');
-    tracks.getTags(req.param('foldr') || 'tracks').then(data => {
+    tracks.getTags(req.query.folder || 'tracks').then(data => {
         mp3Tags = data;
         res.send(mp3Tags);
     });

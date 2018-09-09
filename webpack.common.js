@@ -7,7 +7,7 @@ const bundleDir = './dist';
 module.exports = {
 
     entry: {
-        app: './src/client/app.js'
+        app: './src/ui/app.js'
     },
     output: {
         path: path.resolve(__dirname, bundleDir),

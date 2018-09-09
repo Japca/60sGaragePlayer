@@ -14,8 +14,11 @@ module.exports = merge(common, {
         hot: true,
         contentBase: path.join(__dirname, bundleDir),
         host: 'localhost',
-        port: 3000,
-        publicPath: '/'
+        port: 3001,
+        publicPath: '/',
+        proxy: {
+            '/': 'http://localhost:3000'
+        },
     },
 
     plugins: [
