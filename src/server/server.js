@@ -3,29 +3,14 @@ const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const config = require('../../webpack.dev');
 const compiler = webpack(config);
-process.env.UV_T
+const tags = require('./tags');
 
 const express = require('express');
-const tracks = require('./tracks.js');
-
 const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-let mp3Tags;
-
-app.get('/metaData', function (req, res) {
-    if (mp3Tags) {
-        console.info('Loading mp3 tags from cache.');
-        return res.send(mp3Tags);
-    }
-
-    console.info('Loading mp3 tags from file system.');
-    tracks.getTags('tracks').then(data => {
-        mp3Tags = data;
-        res.send(mp3Tags);
-    });
-});
+app.use(tags);
 
 if (process.env.NODE_ENV !== 'production') {
     app.use(webpackDevMiddleware(compiler, {
