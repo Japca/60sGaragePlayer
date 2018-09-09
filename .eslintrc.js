@@ -3,7 +3,8 @@ module.exports = {
         'browser': true,
         'commonjs': true,
         'es6': true,
-        'jest': true
+        'jest': true,
+
     },
     'extends': ['eslint:recommended', 'plugin:node/recommended','plugin:react/recommended'],
     'parserOptions': {
@@ -43,15 +44,17 @@ module.exports = {
         'node/no-unpublished-require': ['error', {
             'allowModules': [
                 'webpack',
-                'webpack-dev-middleware',
                 'webpack-merge',
                 'clean-webpack-plugin',
-                'html-webpack-plugin'
+                'html-webpack-plugin',
+                'supertest'
             ],
         }],
         'node/no-unsupported-features/es-syntax': ['error', {
             'ignores': ['modules']
         }],
+
         'no-console': 'off',
+
     }
 };

@@ -4,7 +4,6 @@ const request = require('supertest');
 
 const initTags = () => {
     const app = express();
-    app.use
     app.use(tags);
     return app;
 };
@@ -12,13 +11,15 @@ const initTags = () => {
 
 describe('GET /tags', () => {
 
-    test('It should return test tag from /tag endpoint',() => {
+    test.skip('It should return test tag from /tag endpoint', () => {
         request(initTags())
-            .get('/tags')
+            .get('/tags?folder=test/data')
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
-            .expect(200);
-
+            .expect(200, {
+                id: 'some fixed id',
+                name: 'john'
+            });
     });
 
 });
