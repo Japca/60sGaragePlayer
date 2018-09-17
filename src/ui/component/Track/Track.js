@@ -1,46 +1,35 @@
 /* eslint-disable */
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
-import ImageIcon from '@material-ui/icons/Image';
-import WorkIcon from '@material-ui/icons/Work';
-import BeachAccessIcon from '@material-ui/icons/BeachAccess';
+import React, { Component } from 'react';
 
-
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography'
+import axios from 'axios';
 
 
 class Track extends Component {
 
-
+    handleOnClick = (id) => {
+        axios.get(`/play/${id}`);
+    };
 
     render() {
         let track = this.props.track;
-        let id = 0;
         return (
             <div>
-                <ListItem>
-                    <Avatar>
-                        <ImageIcon />
-                    </Avatar>
-                    <ListItemText primary="Photos" secondary="Jan 9, 2014" />
-                </ListItem>
-                {/*{data.map(track => {*/}
-                    {/*return <div key={++id}>*/}
-                        {/*<div className="text">*/}
-                            {/*<p>{track.title} ({track.year})</p>*/}
-                            {/*<p>{track.artist}</p>*/}
-                        {/*</div>*/}
-                    {/*</div>;*/}
-                {/*})}*/}
+                <Card onClick = {this.handleOnClick(track.id)}>
+                    <CardContent>
+                        <Typography component="h2">
+                            {`${track.title} (${track.year})`}
+                        </Typography>
+                        <Typography >
+                            {track.artist}
+                        </Typography>
+                    </CardContent>
+                </Card>
             </div>
         );
     }
-
-
 }
 
 

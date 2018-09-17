@@ -7,12 +7,12 @@ module.exports = {
 
     },
     'extends': ['eslint:recommended', 'plugin:node/recommended','plugin:react/recommended'],
+    "parser": "babel-eslint",
     'parserOptions': {
         'ecmaVersion': 6,
         'ecmaFeatures': {
             'experimentalObjectRestSpread': true,
             'jsx': true,
-
         },
         'sourceType': 'module'
     },

@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
+import Track from '../Track/Track';
 
 
 class TrackList extends Component {
@@ -27,12 +28,7 @@ class TrackList extends Component {
         return (
             <div>
                 {data.map(track => {
-                    return <div key={track.id}>
-                        <div className="text">
-                            <p>{track.title} ({track.year})</p>
-                            <p>{track.artist}</p>
-                        </div>
-                    </div>;
+                    return <Track key = {track.id}  track = {track}/>;
                 })}
             </div>
         );
