@@ -24,5 +24,9 @@ router.get('/tags', function (req, res) {
     // });
 });
 
+router.get('/play', function (req) {
+    tracks.playTrack();
+});
+
 module.exports = router;
 

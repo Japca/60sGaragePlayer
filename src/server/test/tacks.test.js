@@ -7,3 +7,7 @@ test('loads tags from mp3', () => {
     });
 
 });
+
+test('Play audio', () => {
+    tracks.playTrack();
+});

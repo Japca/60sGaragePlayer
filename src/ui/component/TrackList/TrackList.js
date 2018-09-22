@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import Track from '../Track/Track';
 
@@ -13,12 +13,9 @@ class TrackList extends Component {
     }
 
     componentDidMount() {
-        axios.get('/tags').then(response => {
-            debugger;
-            this.setState({data: response.data});
-        })
+        axios.get('/tags')
+            .then(response => this.setState({data: response.data}))
             .catch(err => {
-                debugger;
                 console.log(err);
             });
     }
@@ -26,11 +23,11 @@ class TrackList extends Component {
     render() {
         let data = this.state.data;
         return (
-            <div>
+            <Fragment>
                 {data.map(track => {
                     return <Track key = {track.id}  track = {track}/>;
                 })}
-            </div>
+            </Fragment>
         );
     }
 
